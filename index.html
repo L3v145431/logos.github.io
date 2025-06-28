@@ -179,12 +179,14 @@
             transition: background-color 0.3s;
             font-size: 18px;
         }
- .image-container img {
-        max-width: 70%;
-        height: auto;
-        border-radius: 30px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* This adds the shadow effect */
-    }
+
+        .image-container img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
         .button-container {
             display: flex;
             justify-content: center;
@@ -214,7 +216,7 @@
                 <!-- Options will be loaded here dynamically -->
             </div>
             <div class="button-container">
-                <button type="button" onclick="checkAnswers()">Submit Answer</button>
+                <button type="button" id="submitButton" onclick="checkAnswers()">Submit Answer</button>
             </div>
             <div id="feedback"></div>
         </div>
@@ -284,6 +286,7 @@
             const questionContainer = document.getElementById('questionContainer');
             const feedbackElement = document.getElementById('feedback');
             const buttonContainer = document.querySelector('.button-container');
+            const submitButton = document.getElementById('submitButton');
 
             if (selectedOption) {
                 if (selectedOption.correct) {
@@ -297,6 +300,7 @@
                     setTimeout(() => {
                         correctMessage.style.opacity = '0';
                         setTimeout(() => {
+                            submitButton.style.display = 'none'; // Hide the Submit Answer button
                             const continueButton = document.createElement('button');
                             continueButton.className = 'continue-pill';
                             continueButton.textContent = 'Continue?';
