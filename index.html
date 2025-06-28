@@ -312,7 +312,7 @@
                             let timeLeft = 10;
                             const timer = setInterval(() => {
                                 timeLeft--;
-                                continueButton.textContent = `Continue? (${timeLeft}s)`;
+                                continueButton.textContent = `Continue? [${timeLeft}s]`;
                                 if (timeLeft <= 0) {
                                     clearInterval(timer);
                                     redirectToWorkPage();
