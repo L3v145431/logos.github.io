@@ -144,11 +144,11 @@
       font-family: 'Helvetica', sans-serif;
     }
     .option-button:hover {
-      background-color: var(--global_button_color_secondary);
+      background-color: #FFBC00;
       transform: scale(1.02);
     }
     .option-button.selected {
-      background-color: var(--global_button_color_secondary);
+      background-color: #FFBC00;
     }
     .option-circle {
       width: 1vmin;
@@ -240,7 +240,7 @@
       color: var(--global_title_color);
     }
     .continue-pill {
-      background-color: #FFD54F;
+      background-color: #FCD307;
       color: var(--global_background_color);
       border: none;
       border-radius: 3vmin;
@@ -340,12 +340,10 @@
         ],
       },
     ];
-
     let currentQuestionIndex = 0;
     let selectedOption = null;
     let confettiInterval;
     let correctAnswersCount = 1;
-
     function updateProgressBar() {
       const segments = document.querySelectorAll(".progress-segment");
       segments.forEach((segment, index) => {
@@ -358,7 +356,6 @@
         }
       });
     }
-
     function loadQuestion(index) {
       const question = questions[index];
       const questionContainer = document.getElementById('questionContainer');
@@ -395,7 +392,6 @@
         }, 10);
       }
     }
-
     function checkAnswers() {
       const questionContainer = document.getElementById('questionContainer');
       const feedbackElement = document.getElementById('feedback');
@@ -475,19 +471,16 @@
         }, 2000);
       }
     }
-
     function resetSelection() {
       document.getElementById('feedback').textContent = '';
       document.querySelectorAll('.option-button').forEach((btn) => btn.classList.remove('selected'));
       selectedOption = null;
     }
-
     function redirectToNextGame() {
       if (window.parent && typeof window.parent.loadNextGame === 'function') {
         window.parent.loadNextGame('https://l3v145431.github.io/consolaws.github.io/');
       }
     }
-
     function startConfetti() {
       const canvas = document.getElementById('confetti-canvas');
       const myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
@@ -508,7 +501,6 @@
         }
       }, 1000);
     }
-
     document.addEventListener('DOMContentLoaded', function () {
       loadQuestion(currentQuestionIndex);
       updateProgressBar();
